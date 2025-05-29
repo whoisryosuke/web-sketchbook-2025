@@ -1,9 +1,10 @@
+import MouseTrailPage from "@/sketches/MouseTrail/MouseTrailPage";
 import React from "react";
 
 type Props = {};
 
 const MouseTrail = (props: Props) => {
-  return <div>MouseTrail</div>;
+  return <MouseTrailPage />;
 };
 
 export default MouseTrail;
