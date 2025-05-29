@@ -2,7 +2,7 @@ import React from "react";
 import { MouseTrailParticle } from "./types";
 import styled from "styled-components";
 import { motion } from "motion/react";
-import { PARTICLE_DURATION } from "./constants";
+import { MOUSE_TRAIL_IMAGES, PARTICLE_DURATION } from "./constants";
 
 const MouseTrailParticleContainer = styled.div`
   position: absolute;
@@ -20,7 +20,7 @@ type Props = {
 const MouseTrailParticles = ({ particles }: Props) => {
   return (
     <MouseTrailParticleContainer>
-      {particles.map(({ time, x, y }) => (
+      {particles.map(({ time, x, y, image }) => (
         <motion.div
           key={time}
           initial={{
@@ -37,7 +37,11 @@ const MouseTrailParticles = ({ particles }: Props) => {
             duration: PARTICLE_DURATION / 1000 - 1,
           }}
         >
-          {time}
+          <img
+            src={`/art/${MOUSE_TRAIL_IMAGES[image]}`}
+            width={300}
+            height={"auto"}
+          />
         </motion.div>
       ))}
     </MouseTrailParticleContainer>

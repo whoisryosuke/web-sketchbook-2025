@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Coordinate2D, MouseTrailParticle } from "./types";
 // import MouseTrailParticles from "./MouseTrailParticles";
 import dynamic from "next/dynamic";
-import { PARTICLE_DURATION } from "./constants";
+import { MOUSE_TRAIL_IMAGES, PARTICLE_DURATION } from "./constants";
 const MouseTrailParticles = dynamic(() => import("./MouseTrailParticles"));
 
 const InteractiveZoneContainer = styled.div`
@@ -27,9 +27,13 @@ const InteractiveZone = (props: Props) => {
     // console.log("[MOUSE TRAIL] Spawning particle", x, y);
     const newParticle: MouseTrailParticle = {
       time: Date.now(),
-      x,
-      y,
-      image: Math.random() * 5,
+      // We subtract image width from coordinate to center it on mouse cursor
+      x: x - 200,
+      y: y - 200,
+      image: Math.max(
+        Math.round(Math.random() * MOUSE_TRAIL_IMAGES.length - 1),
+        0
+      ),
     };
     setParticles((prevParticles) => [...prevParticles, newParticle]);
   };
