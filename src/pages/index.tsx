@@ -1,4 +1,5 @@
 import { readdirSync } from "fs";
+import { Head } from "next/document";
 import Link from "next/link";
 import path from "path";
 

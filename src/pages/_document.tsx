@@ -33,7 +33,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head></Head>
+        <Head>
+          <title>Ryo's Web Sketchbook</title>
+        </Head>
         <body>
           <Main />
           <NextScript />

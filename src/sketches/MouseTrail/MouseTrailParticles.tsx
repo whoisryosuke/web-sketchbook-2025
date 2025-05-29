@@ -11,6 +11,10 @@ const MouseTrailParticleContainer = styled.div`
   & div {
     position: absolute;
   }
+
+  & img {
+    border-radius: 2rem;
+  }
 `;
 
 type Props = {
